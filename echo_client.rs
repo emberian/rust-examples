@@ -1,5 +1,5 @@
 use std::rt::io::*;
-use net::ip::SocketAddr;
+use std::rt::io::net::ip::SocketAddr;
 use std::io::println;
 
 fn main() {
