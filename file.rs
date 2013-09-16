@@ -11,5 +11,6 @@ fn main() {
             // EOF
             None => { println("EOF, all done"); break }
         }
+        stream.write(bytes!("foo"));
     }
 }
