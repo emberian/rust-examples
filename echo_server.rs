@@ -8,7 +8,13 @@ fn main() {
     let mut acceptor = socket.listen().unwrap();
     loop {
         let mut stream = acceptor.accept();
-        let bytes = stream.read_to_end();
-        stream.write(bytes);
+        println!("Saw connection!");
+        let mut bytes = [0, ..1];
+        loop {
+            match stream.read(bytes) {
+                Some(_) => stream.write(bytes),
+                None    => break
+            }
+        }
     }
 }
