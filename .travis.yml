@@ -1,0 +1,13 @@
+before_install:
+    - yes | sudo add-apt-repository ppa:hansjorg/rust
+    - sudo apt-get update
+install:
+    - sudo apt-get install rust-nightly
+script:
+    - rustc file.rs
+    - rustc echo_server.rs
+    - rustc echo_client.rs
+    - rustc euler/one.rs
+    - rustc euler/two.rs
+    - rustc euler/three.rs
+    - rustc euler/four.rs
