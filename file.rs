@@ -1,9 +1,10 @@
-use std::rt::io::*;
-use std::io::println;
+use std::io::File;
+use std::io::{Open, ReadWrite};
 
 fn main() {
-    let path = Path("foo.txt");
-    let mut stream = file::open(&path, OpenOrCreate, ReadWrite);
+    // won't work if foo.txt doesn't exist!
+    let path = Path::new("foo.txt");
+    let mut stream = File::open_mode(&path, Open, ReadWrite);
     loop {
         let byte = stream.read_byte();
         match byte {
@@ -11,6 +12,6 @@ fn main() {
             // EOF
             None => { println("EOF, all done"); break }
         }
-        stream.write(bytes!("foo"));
     }
+    stream.write(bytes!("foo!\n"));
 }
