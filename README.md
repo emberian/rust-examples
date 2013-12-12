@@ -1,6 +1,6 @@
 Some Rust examples.
 
-[![Build Status](https://travis-ci.org/[cmr]/[rust-examples].png)](https://travis-ci.org/[cmr]/[rust-examples])
+[![Build Status](https://travis-ci.org/cmr/rust-examples.png)](https://travis-ci.org/cmr/rust-examples)
 
 ```
 CC0
