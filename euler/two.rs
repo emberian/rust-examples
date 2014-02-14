@@ -3,8 +3,8 @@
 use std::iter::AdditiveIterator;
 
 struct FibIterator {
-    priv current: uint,
-    priv prev: uint,
+    current: uint,
+    prev: uint,
 }
 
 impl FibIterator {

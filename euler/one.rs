@@ -3,7 +3,7 @@
 use std::iter::AdditiveIterator;
 
 struct MultipleIterator {
-    priv current: uint
+    current: uint
 }
 
 impl MultipleIterator {

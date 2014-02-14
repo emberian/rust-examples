@@ -10,7 +10,7 @@ fn main() {
     debug!("Picked {}", ip.to_str());
 
     let mut socket = TcpStream::connect(SocketAddr { ip: *ip, port: 13699 });
-    socket.write(bytes!("hello, world"));
-    let bytes = socket.read_bytes(12);
-    println(std::str::from_utf8(bytes));
+    socket.write(bytes!("hello, world")).unwrap();
+    let bytes = socket.read_bytes(12).unwrap();
+    println!("{}", std::str::from_utf8_owned(bytes));
 }

@@ -1,6 +1,6 @@
 struct DivisibleIterator {
-    priv current: uint,
-    priv divisors: ~[uint],
+    current: uint,
+    divisors: ~[uint],
 }
 
 impl DivisibleIterator {

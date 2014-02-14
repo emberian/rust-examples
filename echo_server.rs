@@ -13,8 +13,8 @@ fn main() {
         let mut bytes = [0, ..1];
         loop {
             match stream.read(bytes) {
-                Some(_) => stream.write(bytes),
-                None    => break
+                Ok(_)     => stream.write(bytes).unwrap(),
+                Err(d)    => { println!("IO Error: {}", d); break }
             }
         }
     }
