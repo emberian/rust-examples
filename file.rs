@@ -1,16 +1,18 @@
 use std::io::File;
 use std::io::{Open, ReadWrite};
 
+// won't work if foo.txt doesn't exist!
+
 fn main() {
-    // won't work if foo.txt doesn't exist!
     let path = Path::new("foo.txt");
-    let mut stream = File::open_mode(&path, Open, ReadWrite);
+    // instead of unwraps, one could handle error
+    let mut stream = File::open(&path).ok().expect("could not open file :(");
     loop {
         let byte = stream.read_byte();
         match byte {
-            Some(b) => println(b.to_str()),
+            Ok(b) => println!("{}", b),
             // EOF
-            None => { println("EOF, all done"); break }
+            Err(d) => { println!("Error (EOF?): {}", d); break }
         }
     }
     stream.write(bytes!("foo!\n"));
